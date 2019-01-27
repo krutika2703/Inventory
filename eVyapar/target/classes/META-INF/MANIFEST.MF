@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: eVyapar
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: KRUTIKA
+Implementation-Vendor-Id: com.example
+Build-Jdk: 1.8.0
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/eVyapar
+Created-By: Maven Integration for Eclipse
+
