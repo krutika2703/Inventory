@@ -1,0 +1,19 @@
+<div *ngIf="user">
+  <div>
+    <label>Name: </label> {{user.fullName}}
+  </div>
+  <div>
+    <label>Email: </label> {{user.userEmail}}
+  </div>
+  <div>
+    <label>Phone: </label> {{user.userPhone}}
+  </div>
+  <div>
+    <label>Role: </label> {{user.role}}
+  </div>
+
+<div>
+  <button type="button" class="button btn-danger" (click)='deleteUser()'>Unsubscribe</button>
+</div>
+ 
+</div>

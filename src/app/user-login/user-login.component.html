@@ -1,0 +1,27 @@
+<h3>Login</h3>
+<button> <a routerLink="add" class="btn btn-primary active" role="button" routerLinkActive="active">Register</a></button>
+
+<div style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="uname">Username</label>
+      <input type="text" class="form-control" id="uname" required [(ngModel)]="uname" name="uname">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" required [(ngModel)]="password" name="password">
+    </div>
+
+    <div class="btn-group">
+      <button type="submit" class="btn btn-success">Login</button>
+    </div>
+  </form>
+</div>
+<ul>
+ <!-- <li *ngFor="let customer of customers">-->
+
+    <h4 *ngIf="user!=null"> {{user.fullName}} Login successfully!!!</h4>
+<h4>{{mesg}}</h4>
+
+<!--  </li>-->
+</ul>

@@ -1,0 +1,19 @@
+<div *ngIf="product">
+  <div>
+    <label>Product Name: </label> {{product.productName}}
+  </div>
+  <div>
+    <label>Product MRP: </label> {{product.productMRP}}
+  </div>
+  <div>
+    <label>Discount: </label> {{product.discount}}
+  </div>
+ 
+
+<div>
+  <button type="button" class="button btn-success" (click)='showLDetails()'>View Product</button><br>
+  <button type="button" class="button btn-success" (click)='addToCart()'>Add to cart</button><br>
+  <button type="button" class="button btn-success" (click)='removeFromCart()'>Remove from cart</button><br>
+</div>
+ 
+</div>

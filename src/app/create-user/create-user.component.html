@@ -1,0 +1,55 @@
+<h3>Create User</h3>
+<div [hidden]="submitted" style="width: 300px;">
+  <form #signupForm="ngForm"  (ngSubmit)="onSubmit(signupForm)">
+     
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="user.fullName" name="name">
+    </div>
+   
+    <div class="form-group">
+      <label for="uname">UserName</label>
+      <input type="text" class="form-control" id="uname" required [(ngModel)]="user.userName" name="uname">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" required [(ngModel)]="user.userEmail" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="number" class="form-control" id="phone" required [(ngModel)]="user.userPhone" name="phone">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address:</label><br>
+      <label for="address">Street:</label> <input type="text" class="form-control" id="street" required [(ngModel)]="user.address.street" name="street"><br>
+      <label for="address">City:</label> <input type="text" class="form-control" id="city" required [(ngModel)]="user.city" name="city"><br>
+      <label for="address">State:</label><input type="text" class="form-control" id="state" required [(ngModel)]="user.state" name="state"><br>
+      <label for="address">Country:</label><input type="text" class="form-control" id="country" required [(ngModel)]="user.country" name="country"><br>
+      <label for="address">Pincode:</label><input type="number" class="form-control" id="pincode" required [(ngModel)]="user.pincode" name="pincode"><br>
+    </div>
+    
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <input type="radio" class="form-control" name="role" id="role1" [(ngModel)]="user.userRole" value="ADMIN">Admin
+      <input type="radio" class="form-control" name="role" id="role2" [(ngModel)]="user.userRole" value="CUSTOMER">Customer
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="newUser()">Add</button>
+  <button class="btn btn-success" (click)="newAddress()">Add new Address</button>
+</div>
