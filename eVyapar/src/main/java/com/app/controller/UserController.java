@@ -50,12 +50,12 @@ public class UserController {
 	@PostMapping
 	public ResponseEntity<User> addUser(@RequestBody User u) {
 		System.out.println("add user " + u);
-		service.addUser(u);
 		
 		List<Address> addr=u.getAddress();
 		System.out.println("Addr::"+addr);
-		service.insertAddress(addr);
 		
+		service.insertAddress(addr,u);
+		service.addUser(u);
 		return new ResponseEntity<>(u, HttpStatus.OK);
 	}
 

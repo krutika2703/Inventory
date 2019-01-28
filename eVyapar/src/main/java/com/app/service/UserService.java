@@ -13,6 +13,6 @@ public interface UserService {
 	String updateUser(User u);
 	String deleteAllUsers();
 	User login(String uname,String pass);
-	void insertAddress(List<Address> addr);
+	void insertAddress(List<Address> addr,User u);
 	
 }

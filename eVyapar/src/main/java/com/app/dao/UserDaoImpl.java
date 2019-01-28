@@ -63,9 +63,11 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void insertAddress(List<Address> addr) {
-		for(Address addre : addr)
-			mgr.persist(addr);
+	public void insertAddress(List<Address> addr,User u) {
+		for(Address addre : addr){
+			addre.setUser(u);
+		mgr.persist(addre);
+		}
 		
 	}
 

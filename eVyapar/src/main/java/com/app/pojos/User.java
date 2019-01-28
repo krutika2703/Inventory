@@ -3,7 +3,6 @@ package com.app.pojos;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -30,7 +29,6 @@ public class User {
 	private String userPhone;
 	
 	@OneToMany(mappedBy="user")
-	@ElementCollection
 	private List<Address> address;
 
 	

@@ -58,8 +58,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void insertAddress(List<Address> addr) {
-		dao.insertAddress(addr);
+	public void insertAddress(List<Address> addr,User u) {
+		dao.insertAddress(addr,u);
 		
 	}
 

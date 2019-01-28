@@ -17,6 +17,7 @@ public class Address {
 	private int pincode;
 	private String state;
 	private String country;
+
 	
 	@ManyToOne // mandatory
 	@JoinColumn(name = "user_id") // optional
@@ -41,14 +42,14 @@ public class Address {
 	}
 	
 	
-	public Address(String street, String city, int pincode, String state, String country) {
+	public Address(String street, String city, int pincode, String state, String country, int addr_id) {
 		super();
 		this.street = street;
 		this.city = city;
 		this.pincode = pincode;
 		this.state = state;
 		this.country = country;
-		
+		this.addr_id = addr_id;
 	}
 
 	
