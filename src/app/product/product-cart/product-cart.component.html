@@ -1,59 +1,16 @@
-<br>
-<div class="container" *ngIf="cartProducts.length > 0">
-  <div class="row">
-    <!-- List of Products -->
-    <div class="col-8">
-      <div class="row">
-        <div class="col-4" *ngFor="let product of cartProducts">
-          <div class="item">
-            <div class=" mb-r">
+<h3>Your Cart</h3>
 
-              <!--Card-->
-              <div class="card card-cascade wider">
+    <a [routerLink]="['/productList']">Product List</a>
 
-                  <!--Card content-->
-                <div class="card-body text-center no-padding">
-                  <!--Category & Title-->
-                  <a class="text-muted">
-                    <h5>{{ product.productName }}</h5>
-                  </a>
-                  <h5 class="card-title">
-                    <strong>
-                      <a [routerLink]="['/products/product', product.$productId]">{{ product.productName }}</a>
-                    </strong>
-                  </h5>
+<ul>
+ <!-- <li *ngFor="let customer of customers">-->
 
-                  
+    <h4 *ngIf="product!=null">Product Details:<br>ID {{product.productId}} <br>Name: {{product.productName}} </h4>
+<h4>{{mesg}}</h4>
 
-                  <!--Card footer-->
-                  <div class="card-footer">
-                    <span class="left">₹ {{ product.productMRP }}</span>
-                    <span class="right">
-                    
-                      <a placement="top" mdbTooltip="Remove Product" container="body" (click)="removeCartProduct(product)">
-                        <i class="fa fa-trash"></i>
-                      </a>
-                    </span>
-                  </div>
-
-                </div>
-                <!--/.Card content-->
-
-              </div>
-              <!--/.Card-->
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-4">
-      <app-cart-calculator [products]="cartProducts"></app-cart-calculator>
-    </div>
-  </div>
-</div>
-<!--
-<div class="container" *ngIf="cartProducts.length === 0">
-  <h3 [title]="messageTitle" [description]="messageDescription"></h3>
-</div>-->
+<!--  </li>-->
+</ul>
+<table>
+    <tr><th>Product Name</th><th>Price</th></tr>
+    <tr *ngFor="let product of item"><td>{{product.productName}}</td><td>{{product.productMRP}}</td></tr>
+</table>

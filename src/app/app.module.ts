@@ -16,7 +16,12 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { ProductCartComponent } from './product/product-cart/product-cart.component';
-import { CartCalculatorComponent } from './product/cart-calculator/cart-calculator.component';
+
+import { AdminComponent } from './admin/admin/admin.component';
+import { OrderComponent } from './order/order/order.component';
+import { OrderListComponent } from './order/order-list/order-list.component';
+import { LogoutComponent } from './logout/logout.component';
+
 
 
 @NgModule({
@@ -31,7 +36,12 @@ import { CartCalculatorComponent } from './product/cart-calculator/cart-calculat
     ProductDetailsComponent,
     ProductCreateComponent,
     ProductCartComponent,
-    CartCalculatorComponent
+   
+    AdminComponent,
+    OrderComponent,
+    OrderListComponent,
+    LogoutComponent,
+  
   ],
   imports: [
     BrowserModule,

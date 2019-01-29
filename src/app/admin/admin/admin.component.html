@@ -1,0 +1,14 @@
+<h1>ADMIN</h1>
+
+
+<div style="padding: 20px;">
+  <h1 style="color: blue">Welcome </h1>
+ 
+  <div class="links">
+    <a [routerLink]="['/user']">Manage Customer</a><br>
+   <a routerLink="manageOrder" class="btn btn-primary active" role="button" routerLinkActive="active">Manage Order</a><br>
+   <a [routerLink]="['/addProduct']">Manage Warehouse</a><br>
+  
+  </div>
+  <router-outlet></router-outlet>
+</div>

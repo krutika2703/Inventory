@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../User';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-login',
@@ -13,7 +15,7 @@ export class UserLoginComponent implements OnInit {
   user:User=null;
   mesg:string;
 
-  constructor(private dataservice : UserService) { }
+  constructor(private dataservice : UserService,private router:Router) { }
 
   ngOnInit() {
    
@@ -29,10 +31,18 @@ export class UserLoginComponent implements OnInit {
     console.log("........");
     this.dataservice.login(this.uname,this.password)
     .subscribe(
-      user=>this.user=user,
+      user=>{this.user=user;
+        if(this.user.userRole=="ADMIN"){
+                    this.router.navigate(['/admin']);
+              };
+        if(this.user.userRole=="CUSTOMER"){
+          this.router.navigate(['/productList']);
+          }
+      },
       error=>{console.log(error.error);
                 this.mesg="Invalid username or password"}
-    );
+                    );
+                     
   }
  
 }

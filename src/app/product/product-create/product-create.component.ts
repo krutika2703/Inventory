@@ -10,7 +10,8 @@ import { ProductService } from '../product.service';
 export class ProductCreateComponent implements OnInit {
   product: Product =new Product();
   submitted=false;
-  
+  allow=false;
+  id:number;
     constructor(private productService: ProductService) { }
   
     ngOnInit() {
@@ -35,5 +36,14 @@ export class ProductCreateComponent implements OnInit {
       this.save();
     }
   
-
+    addProduct(){
+      this.allow=true;
+    }
+    removeProduct(){
+      this.allow=!this.allow;
+    }
+    removeItem(){
+      this.productService.deleteProduct(this.id)
+      .subscribe()
+    }
 }

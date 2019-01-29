@@ -1,3 +1,23 @@
+
+<button name="add" (click)="addProduct()">Add Product</button>
+<button name="remove" (click)="removeProduct()">Remove Product</button><br>
+
+
+<!-------------------------------------Remove product----------------------------------------->
+
+<div *ngIf="!allow">
+<h3>Remove Product</h3>
+<input type="number" id="id" name="id" [(ngModel)]="id"><br>
+<button name="removeItem" (click)="removeItem()">Remove Product</button>
+<div [hidden]="!submitted">
+  <h4>Product Deleted successfully!</h4>
+ 
+ 
+</div>
+</div>
+
+<!-------------------------------------Add product----------------------------------------->
+<div  *ngIf="allow">
 <h3>Add Product</h3>
 <div [hidden]="submitted" style="width: 300px;">
   <form (ngSubmit)="onSubmit()">
@@ -33,4 +53,5 @@
   <h4>Product added successfully!</h4>
   <button class="btn btn-success" (click)="newProduct()">Add</button>
  
+</div>
 </div>

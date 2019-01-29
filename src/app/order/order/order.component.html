@@ -1,0 +1,21 @@
+
+<div *ngFor="let order of orders | async" style="width: 300px;"></div>
+<div *ngIf="order">
+  <!--<div>
+    <label>Product Name: </label> {{order.product.productName}}
+  </div>
+  <div>
+    <label>Product MRP: </label> {{order.product.productMRP}}
+  </div>-->
+  <div>
+    <label>Total Amount: </label> {{order.amount}}
+  </div>
+  <div>
+    <label>Date: </label> {{order.date}}
+  </div>
+
+<div>
+  <button type="button" class="button btn-danger" (click)='deleteOrder()'>Delete Order</button>
+</div>
+ 
+</div>

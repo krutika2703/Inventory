@@ -1,8 +1,53 @@
-<h1>List of Products</h1>
-<button> <a routerLink="myCart" class="btn btn-primary active" role="button" routerLinkActive="active">Show Cart</a></button>
-<div *ngFor="let product of products | async" style="width: 300px;">
-  <product-details [product]='product'></product-details>
-
-<hr>
+<div *ngIf="!allow">
+<h3>Product List</h3>
+<button (click)=onClick()>Buy Now</button><br>
+<label>Products in cart:</label>{{count}}
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Photo</th>
+        <th>Buy</th>
+        
+    </tr>
+    <tr *ngFor="let product of products | async" style="width: 300px;">
+        
+        <td>{{product.productId}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.productMRP}}</td>
+        <td>
+            <img src="assets/{{images.photo}}" width="50">
+        </td>
+        <td><input type="checkbox"  (change)="onCheck(product)"></td>
+        
+      <!--  <td>
+            <a [routerLink]="['/cart', { id:product.productId }]">Buy Now</a>
+        </td>
+        -->
+    </tr>
+</table>
 </div>
+<div *ngIf="allow">
 
+    <h3>Your Cart</h3>
+
+    <button (click)=showProductList()>Show Product List</button>
+
+<ul>
+
+</ul>
+<table border="1">
+    <tr><th>Product Name</th><th>Price</th><th>Remove from cart</th></tr>
+    <tr *ngFor="let product of item"><td>{{product.productName}}</td><td>{{product.productMRP}}</td>
+        
+            <td><input type="checkbox"  (change)="onUnCheck(product)"></td>
+        
+    </tr>
+</table>
+<button (click)="confirmOrder()">Confirm Order</button>
+</div>
+<div *ngIf="displayAmount">
+<h2>Total Amount of your order: {{amount}}</h2>
+<button> <a [routerLink]="['/logout']">Place Order</a></button>
+</div>

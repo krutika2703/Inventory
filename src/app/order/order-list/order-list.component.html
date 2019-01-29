@@ -1,0 +1,8 @@
+<h1>Orders</h1>
+
+<div *ngFor="let order of orders | async" style="width: 300px;">
+  <app-order [order]='order'></app-order>
+
+   <hr/>
+</div>
+

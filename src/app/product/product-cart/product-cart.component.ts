@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
-
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart.service';
+import {ProductService} from '../product.service';
+import { Item } from './item.entity';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'product-cart',
@@ -9,27 +12,41 @@ import { CartService } from '../cart.service';
   styleUrls: ['./product-cart.component.css']
 })
 export class ProductCartComponent implements OnInit {
-  cartProducts: Product[];
-	showDataNotFound = true;
+	private items: Item[] = [];
+	private total: number = 0;
+	 id:number;
+	 mesg:string;
+//	product:Product;
+	product:Product;
+	name:string;
+	price:number;
+	item= [];
+	constructor(
+		private activatedRoute: ActivatedRoute,
+		private productService: ProductService
+	) { }
 
-	// Not Found Message
-	messageTitle = 'No Products Found in Cart';
-	messageDescription = 'Please, Add Products to Cart';
 
-	constructor(private cartService: CartService) {}
 
+	
 	ngOnInit() {
-		this.getCartProduct();
-	}
-
-	removeCartProduct(product: Product) {
-		this.cartService.removeFromCart(product);
-
-		// Recalling
-		this.getCartProduct();
-	}
-
-	getCartProduct() {
-		this.cartProducts = this.cartService.getLocalCartProducts();
-	}
+		this.activatedRoute.params.subscribe(params => {
+			 this.id = params['id'];}),
+			this.searchProduct();
+		
+			
 }
+private searchProduct(){
+	
+	this.mesg="";
+    this.product=null;
+    console.log("........");
+    this.productService.getProductById(this.id)
+    .subscribe(
+			user=>{this.product=user,this.name=this.product.productName,this.price=this.product.productMRP,
+				this.item.push({"productName":this.name,"productMRP":this.price});},
+      error=>{console.log(error.error);
+                this.mesg=error.error}
+    );
+  }
+	}
