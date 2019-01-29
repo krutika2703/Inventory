@@ -18,6 +18,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "user_order")
 public class Order {
@@ -31,7 +34,7 @@ public class Order {
 	
 	private int quantity;
 	
-	@ManyToOne // mandatory
+	@ManyToOne @JsonBackReference// mandatory
 	@JoinColumn(name = "adder_id") // optional
 	private Address address;
 	
@@ -114,6 +117,14 @@ public class Order {
 
 	public Long getOrderId() {
 		return orderId;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", amount=" + amount + ", quantity="
+				+ quantity +"]";
 	}
 	
 }

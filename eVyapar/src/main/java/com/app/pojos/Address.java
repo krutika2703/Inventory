@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 public class Address {
@@ -32,6 +34,7 @@ public class Address {
 	private List<Order> order; 
 
 */
+	@JsonManagedReference
 	@OneToMany(mappedBy="address")
 	@ElementCollection
 	private List<Order> order; 
